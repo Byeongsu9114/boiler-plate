@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 5000;
 const bodyParser = require('body-parser');
 const { User } = require("./models/User");
 const config = require("./config/key");
@@ -73,6 +73,10 @@ app.get('/api/users/auth', auth, (req, res) => {
     role: req.user.role,
     image: req.user.iamge
   })
+})
+
+app.get('/api/hello', (req, res) => {
+  res.send("안녕하십니까?")
 })
 
 app.get('/api/users/logout', auth, (req, res) => {
